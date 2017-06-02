@@ -143,6 +143,7 @@ awaiting_run({run, AstNode, Callback}, From, St) ->
     %  about this processor (thus before it considers it while synchronising)
     %  resulting in a miss-synchronisation of all processors
     gen_fsm:reply(From, ok),
+    timer:sleep(100),
     try
         % main execution point
         BlockRetVal = do_exec(St, AstNode),
