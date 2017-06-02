@@ -1,0 +1,29 @@
+int d(int x) {
+    return x * 4;
+}
+void f() {}
+int g(int x) {
+    return x;
+   }
+void execute() {
+    int a = 1;
+    int p = -5;
+    int x = 11;
+    int w = 12;
+    int b1 = 3;
+    int b2 = 6;
+    int c1 = 4;
+    int c2 = 2;
+    4;
+    a;
+    f();
+    a + 2;
+    p - g(4);
+    d(a) << 2;
+    -a;
+    a - -5;
+    (x * w);
+    a + b1*b2 + c1/c2;
+    x == w;
+    a - p - c1;
+}

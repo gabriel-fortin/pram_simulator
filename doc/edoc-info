@@ -1,0 +1,4 @@
+%% encoding: UTF-8
+{application,msc}.
+{packages,[]}.
+{modules,[io_server,logger,manager,scope,util]}.

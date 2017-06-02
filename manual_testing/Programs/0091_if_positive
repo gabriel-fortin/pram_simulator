@@ -1,0 +1,12 @@
+input int a;
+output bool b;
+load a;
+
+void execute() {
+    if (a >= 0) {
+        b = true;
+    } else {
+        b = false;
+    }
+}
+

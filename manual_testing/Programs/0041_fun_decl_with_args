@@ -1,0 +1,8 @@
+void f(int a) {}
+int g(int b) {
+    return b;
+}
+bool h(bool c) {
+    return c;
+}
+void execute() {}

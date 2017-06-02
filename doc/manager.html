@@ -1,0 +1,165 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Module manager</title>
+<link rel="stylesheet" type="text/css" href="stylesheet.css" title="EDoc">
+</head>
+<body bgcolor="white">
+<div class="navbar"><a name="#navbar_top"></a><table width="100%" border="0" cellspacing="0" cellpadding="2" summary="navigation bar"><tr><td><a href="overview-summary.html" target="overviewFrame">Overview</a></td><td><a href="http://www.erlang.org/"><img src="erlang.png" align="right" border="0" alt="erlang logo"></a></td></tr></table></div>
+<hr>
+
+<h1>Module manager</h1>
+<ul class="index"><li><a href="#description">Description</a></li><li><a href="#index">Function Index</a></li><li><a href="#functions">Function Details</a></li></ul>.
+<p>Copyright © (C) 2015, Gabriel Fortin</p>
+
+<p><b>Behaviours:</b> <a href="gen_fsm.html"><tt>gen_fsm</tt></a>.</p>
+<p><b>Authors:</b> Gabriel Fortin.</p>
+
+<h2><a name="description">Description</a></h2>
+  
+<h2><a name="index">Function Index</a></h2>
+<table width="100%" border="1" cellspacing="0" cellpadding="2" summary="function index"><tr><td valign="top"><a href="#code_change-4">code_change/4</a></td><td></td></tr>
+<tr><td valign="top"><a href="#handle_event-3">handle_event/3</a></td><td></td></tr>
+<tr><td valign="top"><a href="#handle_info-3">handle_info/3</a></td><td></td></tr>
+<tr><td valign="top"><a href="#handle_sync_event-4">handle_sync_event/4</a></td><td></td></tr>
+<tr><td valign="top"><a href="#init-1">init/1</a></td><td></td></tr>
+<tr><td valign="top"><a href="#is_finished-2">is_finished/2</a></td><td></td></tr>
+<tr><td valign="top"><a href="#is_finished-3">is_finished/3</a></td><td></td></tr>
+<tr><td valign="top"><a href="#is_new-3">is_new/3</a></td><td></td></tr>
+<tr><td valign="top"><a href="#is_working-3">is_working/3</a></td><td></td></tr>
+<tr><td valign="top"><a href="#print_mem-1">print_mem/1</a></td><td>
+  Prints the content of memory (debug method).</td></tr>
+<tr><td valign="top"><a href="#register_processor-2">register_processor/2</a></td><td>  
+Registers in the given manager for synchronisation purposes.</td></tr>
+<tr><td valign="top"><a href="#request_barrier-1">request_barrier/1</a></td><td>  
+Causes the caller to synchronize on a barrier request event.</td></tr>
+<tr><td valign="top"><a href="#start_link-3">start_link/3</a></td><td></td></tr>
+<tr><td valign="top"><a href="#sync_on_barrier-2">sync_on_barrier/2</a></td><td>  
+Causes the caller to synchronize on a barrier sync event.</td></tr>
+<tr><td valign="top"><a href="#sync_on_tick-1">sync_on_tick/1</a></td><td>  
+Causes the caller to synchronize on a tick event.</td></tr>
+<tr><td valign="top"><a href="#terminate-3">terminate/3</a></td><td></td></tr>
+<tr><td valign="top"><a href="#unregister_processor-2">unregister_processor/2</a></td><td>  
+Unregisters in the given manager.</td></tr>
+</table>
+
+<h2><a name="functions">Function Details</a></h2>
+
+<h3 class="function"><a name="code_change-4">code_change/4</a></h3>
+<div class="spec">
+<p><tt>code_change(OldVsn, StateName, State, Extra) -&gt; any()</tt></p>
+</div>
+
+<h3 class="function"><a name="handle_event-3">handle_event/3</a></h3>
+<div class="spec">
+<p><tt>handle_event(Event, StateName, State) -&gt; any()</tt></p>
+</div>
+
+<h3 class="function"><a name="handle_info-3">handle_info/3</a></h3>
+<div class="spec">
+<p><tt>handle_info(Info, StateName, State) -&gt; any()</tt></p>
+</div>
+
+<h3 class="function"><a name="handle_sync_event-4">handle_sync_event/4</a></h3>
+<div class="spec">
+<p><tt>handle_sync_event(Event, From, StateName, State) -&gt; any()</tt></p>
+</div>
+
+<h3 class="function"><a name="init-1">init/1</a></h3>
+<div class="spec">
+<p><tt>init(Init_args) -&gt; any()</tt></p>
+</div>
+
+<h3 class="function"><a name="is_finished-2">is_finished/2</a></h3>
+<div class="spec">
+<p><tt>is_finished(X1, State) -&gt; any()</tt></p>
+</div>
+
+<h3 class="function"><a name="is_finished-3">is_finished/3</a></h3>
+<div class="spec">
+<p><tt>is_finished(X1, From, State) -&gt; any()</tt></p>
+</div>
+
+<h3 class="function"><a name="is_new-3">is_new/3</a></h3>
+<div class="spec">
+<p><tt>is_new(X1, From, State) -&gt; any()</tt></p>
+</div>
+
+<h3 class="function"><a name="is_working-3">is_working/3</a></h3>
+<div class="spec">
+<p><tt>is_working(X1, From, State) -&gt; any()</tt></p>
+</div>
+
+<h3 class="function"><a name="print_mem-1">print_mem/1</a></h3>
+<div class="spec">
+<p><tt>print_mem(Manager) -&gt; any()</tt></p>
+</div><p>
+  Prints the content of memory (debug method).
+ </p>
+
+<h3 class="function"><a name="register_processor-2">register_processor/2</a></h3>
+<div class="spec">
+<p><tt>register_processor(Manager, ProcessorPid) -&gt; any()</tt></p>
+</div><p><p>  
+Registers in the given manager for synchronisation purposes.</p>
+ 
+  A call to this function should be paired with a corresponding
+  call to <a href="#unregister_processor-2"><code>unregister_processor/2</code></a>
+ </p>
+
+<h3 class="function"><a name="request_barrier-1">request_barrier/1</a></h3>
+<div class="spec">
+<p><tt>request_barrier(Manager) -&gt; any()</tt></p>
+</div><p><p>  
+Causes the caller to synchronize on a barrier request event.</p>
+ 
+  This function will not return until all running (not already syncing)
+  processors call <a href="#request_barrier-1"><code>request_barrier/1</code></a> or <a href="#sync_on_barrier-2"><code>sync_on_barrier/2</code></a>.
+ </p>
+
+<h3 class="function"><a name="start_link-3">start_link/3</a></h3>
+<div class="spec">
+<p><tt>start_link(Program, InputServer, OutputServer) -&gt; any()</tt></p>
+</div>
+
+<h3 class="function"><a name="sync_on_barrier-2">sync_on_barrier/2</a></h3>
+<div class="spec">
+<p><tt>sync_on_barrier(Manager, X2) -&gt; any()</tt></p>
+</div><p><p>  
+Causes the caller to synchronize on a barrier sync event.</p>
+ 
+  This function will not return until all running (not already syncing)
+  processors call <a href="#sync_on_barrier-2"><code>sync_on_barrier/2</code></a>.
+ </p>
+
+<h3 class="function"><a name="sync_on_tick-1">sync_on_tick/1</a></h3>
+<div class="spec">
+<p><tt>sync_on_tick(Manager) -&gt; any()</tt></p>
+</div><p><p>  
+Causes the caller to synchronize on a tick event.</p>
+ 
+  This function will not return until all running (not already syncing)
+  processors call <a href="#sync_on_tick-1"><code>sync_on_tick/1</code></a> or <a href="#sync_on_barrier-2"><code>sync_on_barrier/2</code></a>.
+ </p>
+
+<h3 class="function"><a name="terminate-3">terminate/3</a></h3>
+<div class="spec">
+<p><tt>terminate(Reason, StateName, State) -&gt; any()</tt></p>
+</div>
+
+<h3 class="function"><a name="unregister_processor-2">unregister_processor/2</a></h3>
+<div class="spec">
+<p><tt>unregister_processor(Manager, ProcessorPid) -&gt; any()</tt></p>
+</div><p><p>  
+Unregisters in the given manager.</p>
+ 
+  A call to this function should be paired with a corresponding
+  call to <a href="#register_processor-2"><code>register_processor/2</code></a>
+ </p>
+<hr>
+
+<div class="navbar"><a name="#navbar_bottom"></a><table width="100%" border="0" cellspacing="0" cellpadding="2" summary="navigation bar"><tr><td><a href="overview-summary.html" target="overviewFrame">Overview</a></td><td><a href="http://www.erlang.org/"><img src="erlang.png" align="right" border="0" alt="erlang logo"></a></td></tr></table></div>
+<p><i>Generated by EDoc, Jan 9 2016, 16:06:32.</i></p>
+</body>
+</html>

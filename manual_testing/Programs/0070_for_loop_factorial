@@ -1,0 +1,11 @@
+input int x;
+output int res;
+load x;
+
+void execute() {
+    res = 1;
+    for(int i=1 ; i<=x ; i=i+1) {
+        res = res * i;
+    }
+}
+

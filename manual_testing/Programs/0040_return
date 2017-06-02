@@ -1,0 +1,11 @@
+void f() {
+    return;
+}
+int g() {
+    return 4;
+}
+bool h() {
+    return false;
+}
+void execute() {}
+

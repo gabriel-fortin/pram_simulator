@@ -1,0 +1,20 @@
+input int x;
+output int res;
+load x;
+
+int factorial(int arg) {
+    int res = 1;
+    for(int i=1 ; true ; i=i+1) {
+        if (i > arg) {
+            return res;
+        }
+        res = res * i;
+    }
+}
+
+
+void execute() {
+    res = factorial(x);
+    factorial(0);
+}
+

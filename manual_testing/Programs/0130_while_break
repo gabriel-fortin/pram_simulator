@@ -1,0 +1,22 @@
+input int x;
+output int res;
+load x;
+
+int fac(int arg) {
+    int result = 1;
+    int i = 1;
+    while (true) {
+        result = result * i;
+        i = i + 1;
+        if (i > arg) {
+            break;
+        }
+    }
+    return result;
+}
+
+void execute() {
+    res = fac(x);
+}
+
+

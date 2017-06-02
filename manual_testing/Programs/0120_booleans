@@ -1,0 +1,22 @@
+output int x;
+
+bool f() {
+    return false;
+}
+
+bool t() {
+    return true;
+}
+
+void execute() {
+    if (f() || false) {
+        x = 4;
+    } else {
+        if (t() && true) {
+            x = 6;
+        } else {
+            x = 8;
+        }
+    }
+}
+

@@ -1,0 +1,15 @@
+input int N;
+load N;
+
+output int[] Results[1..N];
+
+void execute() {
+    pardo (p=1..N) {
+        int r = 0;
+        for (int i=1 ; i<=p ; i=i+1) {
+            r = r + i;
+        }
+        Results[p] = r;
+    }
+}
+

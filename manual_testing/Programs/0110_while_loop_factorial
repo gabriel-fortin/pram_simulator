@@ -1,0 +1,12 @@
+input int x;
+output int res;
+load x;
+
+void execute() {
+    res = 1;
+    int i = 1;
+    while ((i = i+1) <= x) {
+        res = res * i;
+    }
+}
+

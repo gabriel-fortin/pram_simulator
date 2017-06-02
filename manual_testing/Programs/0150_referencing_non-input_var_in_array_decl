@@ -1,0 +1,14 @@
+int u = 13;  // unreferenced
+int N = 5;
+input int[] a[1..N];
+output int[] b[0..N-1];
+
+load a;
+
+void execute() {
+    for(int i=0 ; i<N ; i=i+1) {
+        b[i] = a[i+1];
+    }
+    b[2] = u;
+}
+

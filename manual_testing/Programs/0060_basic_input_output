@@ -1,0 +1,8 @@
+input int a;
+output int b;
+load a;
+
+void execute() {
+    b = a;
+}
+

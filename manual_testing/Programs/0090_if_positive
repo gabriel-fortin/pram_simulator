@@ -1,0 +1,12 @@
+input int a;
+output int b;
+load a;
+
+void execute() {
+    if (a >= 0) {
+        b = 1;
+    } else {
+        b = -1;
+    }
+}
+

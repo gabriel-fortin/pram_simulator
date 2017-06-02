@@ -1,0 +1,30 @@
+// model: EREW
+// matrices' dimensions: p·q, q·r
+input int p;
+input int q;
+input int r;
+
+load p;
+load q;
+load r;
+
+input int[][] A[p][q];
+input int[][] B[q][r];
+
+load A;
+load B;
+
+output int[][] C[p][r];
+
+void execute() {
+    for (int i=0 ; i<p ; i=i+1) {
+        for (int k=0 ; k<r ; k=k+1) {
+            int sum = 0;
+            for (int j=0 ; j<q ; j=j+1) {
+                sum = sum + A[i][j] * B[j][k];
+            }
+            C[i][k] = sum;
+        }
+    }
+}
+

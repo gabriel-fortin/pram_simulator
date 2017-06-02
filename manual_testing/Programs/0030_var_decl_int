@@ -1,0 +1,4 @@
+void execute() {
+    int a;
+    int b = 3;
+}

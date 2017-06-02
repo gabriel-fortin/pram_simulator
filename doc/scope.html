@@ -1,0 +1,147 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Module scope</title>
+<link rel="stylesheet" type="text/css" href="stylesheet.css" title="EDoc">
+</head>
+<body bgcolor="white">
+<div class="navbar"><a name="#navbar_top"></a><table width="100%" border="0" cellspacing="0" cellpadding="2" summary="navigation bar"><tr><td><a href="overview-summary.html" target="overviewFrame">Overview</a></td><td><a href="http://www.erlang.org/"><img src="erlang.png" align="right" border="0" alt="erlang logo"></a></td></tr></table></div>
+<hr>
+
+<h1>Module scope</h1>
+<ul class="index"><li><a href="#description">Description</a></li><li><a href="#index">Function Index</a></li><li><a href="#functions">Function Details</a></li></ul>.
+<p>Copyright © (C) 2015, Gabriel Fortin</p>
+
+<p><b>Authors:</b> Gabriel Fortin.</p>
+
+<h2><a name="description">Description</a></h2>
+  
+<h2><a name="index">Function Index</a></h2>
+<table width="100%" border="1" cellspacing="0" cellpadding="2" summary="function index"><tr><td valign="top"><a href="#add_fun-2">add_fun/2</a></td><td>
+  Adds a function definition to the scope.</td></tr>
+<tr><td valign="top"><a href="#add_var-4">add_var/4</a></td><td>  
+Adds a var to the scope's current frame.</td></tr>
+<tr><td valign="top"><a href="#close_frame-1">close_frame/1</a></td><td>
+  Deletes the top frame of the scope.</td></tr>
+<tr><td valign="top"><a href="#get_fun-2">get_fun/2</a></td><td>
+  Gets a function definition from the scope.</td></tr>
+<tr><td valign="top"><a href="#new-0">new/0</a></td><td>
+  Creates a new scope process.</td></tr>
+<tr><td valign="top"><a href="#new_from_scope-1">new_from_scope/1</a></td><td>
+  Creates a scope process that is a copy of the given scope.</td></tr>
+<tr><td valign="top"><a href="#open_frame-1">open_frame/1</a></td><td>  
+Creates a new frame in the scope.</td></tr>
+<tr><td valign="top"><a href="#read_var-2">read_var/2</a></td><td>
+  Reads a var value from the scope.</td></tr>
+<tr><td valign="top"><a href="#read_var_and_type-2">read_var_and_type/2</a></td><td>
+  Reads a var value and type from the scope.</td></tr>
+<tr><td valign="top"><a href="#write_var-3">write_var/3</a></td><td>
+  Writes a value to a var in the scope.</td></tr>
+</table>
+
+<h2><a name="functions">Function Details</a></h2>
+
+<h3 class="function"><a name="add_fun-2">add_fun/2</a></h3>
+<div class="spec">
+<p><tt>add_fun(Scope, Function) -&gt; ok</tt>
+<ul class="definitions"><li><tt>Scope = pid()</tt></li><li><tt>Function = #rFunctionDef{}</tt></li></ul></p>
+</div><p>throws <tt>{fun_already_defined_in_scope, FunName::<a href="#type-string_type">string_type()</a>}</tt></p>
+<p>
+  Adds a function definition to the scope.
+ </p>
+
+<h3 class="function"><a name="add_var-4">add_var/4</a></h3>
+<div class="spec">
+<p><tt>add_var(Scope, VarAddr, VarType, VarProperties) -&gt; ok</tt>
+<ul class="definitions"><li><tt>Scope = pid()</tt></li><li><tt>VarAddr = <a href="#type-tVarAddr">tVarAddr()</a></tt></li><li><tt>VarType = global_var | <a href="#type-tVarType">tVarType()</a></tt></li><li><tt>VarProperties = [<a href="#type-varProperty">varProperty()</a>]</tt></li></ul></p>
+</div><p>throws <tt>no_open_scopes | {var_already_defined_in_scope, VarAddr}</tt></p>
+<p><p>  
+Adds a var to the scope's current frame.</p>
+ 
+  Valid values for the properties' list: <code>global</code>,
+  <code>const</code>, <code>input_var</code>,
+  <code>output_var</code>.
+ </p>
+
+<h3 class="function"><a name="close_frame-1">close_frame/1</a></h3>
+<div class="spec">
+<p><tt>close_frame(Scope) -&gt; ok</tt>
+<ul class="definitions"><li><tt>Scope = pid()</tt></li></ul></p>
+</div><p>throws <tt>no_open_scopes</tt></p>
+<p>
+  Deletes the top frame of the scope.
+ </p>
+
+<h3 class="function"><a name="get_fun-2">get_fun/2</a></h3>
+<div class="spec">
+<p><tt>get_fun(Scope, FunName) -&gt; {ok, Function}</tt>
+<ul class="definitions"><li><tt>Scope = pid()</tt></li><li><tt>FunName = <a href="#type-string_type">string_type()</a></tt></li><li><tt>Function = #rFunctionDef{}</tt></li></ul></p>
+</div><p>throws <tt>{not_in_scope, FunName::<a href="#type-string_type">string_type()</a>}</tt></p>
+<p>
+  Gets a function definition from the scope
+ </p>
+
+<h3 class="function"><a name="new-0">new/0</a></h3>
+<div class="spec">
+<p><tt>new() -&gt; Scope</tt>
+<ul class="definitions"><li><tt>Scope = pid()</tt></li></ul></p>
+</div><p>
+  Creates a new scope process.
+ </p>
+
+<h3 class="function"><a name="new_from_scope-1">new_from_scope/1</a></h3>
+<div class="spec">
+<p><tt>new_from_scope(ScopeToCopy) -&gt; Scope</tt>
+<ul class="definitions"><li><tt>ScopeToCopy = pid()</tt></li><li><tt>Scope = pid()</tt></li></ul></p>
+</div><p>
+  Creates a scope process that is a copy of the given scope.
+ </p>
+
+<h3 class="function"><a name="open_frame-1">open_frame/1</a></h3>
+<div class="spec">
+<p><tt>open_frame(Scope) -&gt; ok</tt>
+<ul class="definitions"><li><tt>Scope = pid()</tt></li></ul></p>
+</div><p><p>  
+Creates a new frame in the scope.</p>
+ 
+  Each nested block of code defines a nested scope and therefore
+  should be accompanied by a scope frame. Such a frame should stay
+  opened as long as the (related) code block is not left.
+  <br>
+  Opening a frame should be followed by a corresponding call to
+  <a href="#close_frame-1"><code>close_frame/1</code></a>.
+ </p>
+
+<h3 class="function"><a name="read_var-2">read_var/2</a></h3>
+<div class="spec">
+<p><tt>read_var(Scope, VarAddr) -&gt; Result</tt>
+<ul class="definitions"><li><tt>Scope = pid()</tt></li><li><tt>VarAddr = <a href="#type-tVarAddr">tVarAddr()</a></tt></li><li><tt>Result = {ok, _VarValue} | {err, global_var}</tt></li></ul></p>
+</div><p>throws <tt>{not_in_scope, VarName::<a href="#type-string_type">string_type()</a>}</tt></p>
+<p>
+  Reads a var value from the scope.
+ </p>
+
+<h3 class="function"><a name="read_var_and_type-2">read_var_and_type/2</a></h3>
+<div class="spec">
+<p><tt>read_var_and_type(Scope, VarAddr) -&gt; Result</tt>
+<ul class="definitions"><li><tt>Scope = pid()</tt></li><li><tt>VarAddr = <a href="#type-tVarAddr">tVarAddr()</a></tt></li><li><tt>Result = {ok, _VarValue, _VarType} | {err, global_var}</tt></li></ul></p>
+</div><p>throws <tt>{not_in_scope, VarName::<a href="#type-string_type">string_type()</a>}</tt></p>
+<p>
+  Reads a var value and type from the scope.
+ </p>
+
+<h3 class="function"><a name="write_var-3">write_var/3</a></h3>
+<div class="spec">
+<p><tt>write_var(Scope, VarAddr, VarValue) -&gt; ok</tt>
+<ul class="definitions"><li><tt>Scope = pid()</tt></li><li><tt>VarAddr = <a href="#type-tVarAddr">tVarAddr()</a></tt></li><li><tt>VarValue = any()</tt></li></ul></p>
+</div><p>throws <tt>{not_in_scope | global_var, VarName::<a href="#type-string_type">string_type()</a>}</tt></p>
+<p>
+  Writes a value to a var in the scope.
+ </p>
+<hr>
+
+<div class="navbar"><a name="#navbar_bottom"></a><table width="100%" border="0" cellspacing="0" cellpadding="2" summary="navigation bar"><tr><td><a href="overview-summary.html" target="overviewFrame">Overview</a></td><td><a href="http://www.erlang.org/"><img src="erlang.png" align="right" border="0" alt="erlang logo"></a></td></tr></table></div>
+<p><i>Generated by EDoc, Oct 17 2015, 19:41:41.</i></p>
+</body>
+</html>

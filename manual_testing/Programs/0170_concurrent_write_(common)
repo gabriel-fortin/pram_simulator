@@ -1,0 +1,9 @@
+int N = 5;
+output int[] arr[1];
+
+void execute() {
+    pardo (p=1..N) {
+        arr[0] = 9;
+    }
+}
+

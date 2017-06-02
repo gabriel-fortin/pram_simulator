@@ -1,0 +1,5 @@
+void execute() {
+    bool a;
+    bool b = true;
+    bool c = false;
+}

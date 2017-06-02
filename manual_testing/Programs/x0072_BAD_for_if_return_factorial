@@ -1,0 +1,21 @@
+input int x;
+output int res;
+load x;
+
+// function ret type is 'int' but...
+int factorial(int arg) {
+    for(int i=1 ; true ; i=i+1) {
+        if (i > arg) {
+            // ... it returns nothing
+            return;
+        }
+        res = res * i;
+    }
+}
+
+
+void execute() {
+    res = 1;
+    factorial(x);
+}
+

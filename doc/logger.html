@@ -1,0 +1,151 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Module logger</title>
+<link rel="stylesheet" type="text/css" href="stylesheet.css" title="EDoc">
+</head>
+<body bgcolor="white">
+<div class="navbar"><a name="#navbar_top"></a><table width="100%" border="0" cellspacing="0" cellpadding="2" summary="navigation bar"><tr><td><a href="overview-summary.html" target="overviewFrame">Overview</a></td><td><a href="http://www.erlang.org/"><img src="erlang.png" align="right" border="0" alt="erlang logo"></a></td></tr></table></div>
+<hr>
+
+<h1>Module logger</h1>
+<ul class="index"><li><a href="#description">Description</a></li><li><a href="#index">Function Index</a></li><li><a href="#functions">Function Details</a></li></ul>.
+<p>Copyright © 2015, Gabriel Fortin</p>
+
+<p><b>Behaviours:</b> <a href="gen_server.html"><tt>gen_server</tt></a>.</p>
+<p><b>Authors:</b> Gabriel Fortin.</p>
+
+<h2><a name="description">Description</a></h2>
+  
+<h2><a name="index">Function Index</a></h2>
+<table width="100%" border="1" cellspacing="0" cellpadding="2" summary="function index"><tr><td valign="top"><a href="#filter_set-1">filter_set/1</a></td><td>
+  Sets the tags for output filtering.</td></tr>
+<tr><td valign="top"><a href="#get_filter_mode-0">get_filter_mode/0</a></td><td>
+  Gets the filtering mode.</td></tr>
+<tr><td valign="top"><a href="#log-2">log/2</a></td><td>  
+Logs a message.</td></tr>
+<tr><td valign="top"><a href="#log-3">log/3</a></td><td></td></tr>
+<tr><td valign="top"><a href="#log_enter-1">log_enter/1</a></td><td>  
+Logs a message and signals entering a function, block, ...</td></tr>
+<tr><td valign="top"><a href="#log_enter-2">log_enter/2</a></td><td></td></tr>
+<tr><td valign="top"><a href="#log_enter-3">log_enter/3</a></td><td></td></tr>
+<tr><td valign="top"><a href="#log_exit-1">log_exit/1</a></td><td>  
+Logs a message and signals exiting a function, block, ...</td></tr>
+<tr><td valign="top"><a href="#log_exit-2">log_exit/2</a></td><td></td></tr>
+<tr><td valign="top"><a href="#log_exit-3">log_exit/3</a></td><td></td></tr>
+<tr><td valign="top"><a href="#set_filter_mode-1">set_filter_mode/1</a></td><td>  
+Sets the filtering mode.</td></tr>
+<tr><td valign="top"><a href="#start-0">start/0</a></td><td>
+  Starts the server.</td></tr>
+<tr><td valign="top"><a href="#start_link-0">start_link/0</a></td><td>
+  Starts the server and links it.</td></tr>
+</table>
+
+<h2><a name="functions">Function Details</a></h2>
+
+<h3 class="function"><a name="filter_set-1">filter_set/1</a></h3>
+<div class="spec">
+<p><tt>filter_set(TagList) -&gt; {ok, OldTagList}</tt>
+<ul class="definitions"><li><tt>TagList = list()</tt></li><li><tt>OldTagList = list()</tt></li></ul></p>
+</div><p>
+  Sets the tags for output filtering.
+ </p>
+
+<h3 class="function"><a name="get_filter_mode-0">get_filter_mode/0</a></h3>
+<div class="spec">
+<p><tt>get_filter_mode() -&gt; {ok, Mode}</tt>
+<ul class="definitions"><li><tt>Mode = include | exclude</tt></li></ul></p>
+</div><p>
+  Gets the filtering mode.</p>
+
+<h3 class="function"><a name="log-2">log/2</a></h3>
+<div class="spec">
+<p><tt>log(FormatText, _Tag) -&gt; ok</tt>
+<ul class="definitions"><li><tt>FormatText = string()</tt></li></ul></p>
+</div><p><p>  
+Logs a message.</p>
+ 
+  The current indentation level is used (and left unchaged).</p>
+
+<h3 class="function"><a name="log-3">log/3</a></h3>
+<div class="spec">
+<p><tt>log(FormatText, _Tag, Args) -&gt; ok</tt>
+<ul class="definitions"><li><tt>FormatText = string()</tt></li><li><tt>Args = list()</tt></li></ul></p>
+</div>
+
+<h3 class="function"><a name="log_enter-1">log_enter/1</a></h3>
+<div class="spec">
+<p><tt>log_enter(_Tag) -&gt; ok</tt><br></p>
+</div><p><p>  
+Logs a message and signals entering a function, block, ...</p>
+ 
+  This function will first print the log message (using the current
+  indentation level) and then increase the indentation level of logs.
+  Don't forget to call a corresponding <a href="log_exit.html"><code>log_exit</code></a>.</p>
+
+<h3 class="function"><a name="log_enter-2">log_enter/2</a></h3>
+<div class="spec">
+<p><tt>log_enter(FormatText, _Tag) -&gt; ok</tt>
+<ul class="definitions"><li><tt>FormatText = string()</tt></li></ul></p>
+</div>
+
+<h3 class="function"><a name="log_enter-3">log_enter/3</a></h3>
+<div class="spec">
+<p><tt>log_enter(FormatText, _Tag, Args) -&gt; ok</tt>
+<ul class="definitions"><li><tt>FormatText = string()</tt></li><li><tt>Args = list()</tt></li></ul></p>
+</div>
+
+<h3 class="function"><a name="log_exit-1">log_exit/1</a></h3>
+<div class="spec">
+<p><tt>log_exit(_Tag) -&gt; ok</tt><br></p>
+</div><p><p>  
+Logs a message and signals exiting a function, block, ...</p>
+ 
+  This function will first decrease the indentation level of logs
+  and then print the log message (using the decreased indent).
+  It should be paired with a call to <a href="log_enter.html"><code>log_enter</code></a>.</p>
+
+<h3 class="function"><a name="log_exit-2">log_exit/2</a></h3>
+<div class="spec">
+<p><tt>log_exit(FormatText, _Tag) -&gt; ok</tt>
+<ul class="definitions"><li><tt>FormatText = string()</tt></li></ul></p>
+</div>
+
+<h3 class="function"><a name="log_exit-3">log_exit/3</a></h3>
+<div class="spec">
+<p><tt>log_exit(FormatText, _Tag, Args) -&gt; ok</tt>
+<ul class="definitions"><li><tt>FormatText = string()</tt></li><li><tt>Args = list()</tt></li></ul></p>
+</div>
+
+<h3 class="function"><a name="set_filter_mode-1">set_filter_mode/1</a></h3>
+<div class="spec">
+<p><tt>set_filter_mode(Mode) -&gt; ok</tt>
+<ul class="definitions"><li><tt>Mode = include | exclude</tt></li></ul></p>
+</div><p><p>  
+Sets the filtering mode.</p>
+ 
+  When set to 'include' only tags registered with <a href="#filter_set-1"><code>filter_set/1</code></a>
+  will be printed. When set to 'exclude' tags registered with
+  <a href="#fileter_set-1"><code>fileter_set/1</code></a> will NOT be printed.</p>
+
+<h3 class="function"><a name="start-0">start/0</a></h3>
+<div class="spec">
+<p><tt>start() -&gt; {ok, Process | ignore | Error}</tt>
+<ul class="definitions"><li><tt>Process = pid()</tt></li><li><tt>Error = {error, Reason::term()}</tt></li></ul></p>
+</div><p>
+  Starts the server
+ </p>
+
+<h3 class="function"><a name="start_link-0">start_link/0</a></h3>
+<div class="spec">
+<p><tt>start_link() -&gt; any()</tt></p>
+</div><p>
+  Starts the server and links it
+ </p>
+<hr>
+
+<div class="navbar"><a name="#navbar_bottom"></a><table width="100%" border="0" cellspacing="0" cellpadding="2" summary="navigation bar"><tr><td><a href="overview-summary.html" target="overviewFrame">Overview</a></td><td><a href="http://www.erlang.org/"><img src="erlang.png" align="right" border="0" alt="erlang logo"></a></td></tr></table></div>
+<p><i>Generated by EDoc, Jan 9 2016, 16:06:32.</i></p>
+</body>
+</html>

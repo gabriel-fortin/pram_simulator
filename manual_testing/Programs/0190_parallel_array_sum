@@ -1,0 +1,22 @@
+
+input int N;  // array length, a power of 2
+load N;
+
+input int[] A[1..N];
+load A;
+
+output int S;
+
+void execute() {
+    int lim = N/2;
+    pardo (p=1..N/2) {
+        while (p <= lim) {
+            A[p] = A[2*p] + A[2*p-1];
+            lim = lim/2;
+        }
+
+    }
+
+    S = A[1];
+}
+
